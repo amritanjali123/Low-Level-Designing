@@ -22,7 +22,7 @@ class address {
     int pincode;
 };
 
-class Library {
+class Library {          // not reqd, you are designing a single library and managing book and user details of that library, you are not clear with scope of design
     string lib_name;
     address lib_add;
     int library_number;
@@ -37,7 +37,7 @@ public:
 };
 
 class admin : public Library {
-    vector<book> book_of_this_lib;
+    vector<book> book_of_this_lib;      // incorrect design, admin doesn't have to extend from library
     string admin_name;
     address admin_add;
 public:
@@ -61,7 +61,7 @@ public:
         Book_list[book.id] = book;
 
         // this will contain book of only this library associat with admin
-        book_of_this_lib.pb(book.id);
+        book_of_this_lib.pb(book.id);          // not reqd.       
     }
 };
 
@@ -78,7 +78,7 @@ class  user_data {
     }
     //this map will contains the status of book that user had taken
 // 1 will represents book is taken and 0 represents book is submited ;
-    map<book, pair<pair<date, date>, bool>> statue;
+    map<book, pair<pair<date, date>, bool>> statue;         // very poor design, how will search in the map, book is a custom object ? instead make book_id as the key
 public:
     string get_book(book_details book, date d2 )
     {
@@ -95,7 +95,7 @@ public:
         // this will be a API that will give the cureent date
         date d1 = get_today_date();
 
-        status[book] = {{d1, d2}, 1};
+        status[book] = {{d1, d2}, 1};            // this is wrong it will not work, you can try this in editor
 
         //here I am updateing the status of book by expected date after which it will be available
 
@@ -106,7 +106,7 @@ public:
     void return_book(book_details book)
     {
         book_history[book] = "Available";
-        status[book.id].second = 0;
+        status[book.id].second = 0;          // here whhy are you book.id earlier you have book as the key of map ?
     }
 };
 
