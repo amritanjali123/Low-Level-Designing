@@ -1,6 +1,6 @@
-//I have writen this code by taking 30 min in concedration because generally
-//in interview we get 45 min time where 15 min in introduction and understanding
-//the problem statement and cross questioning
+//I have written this code by taking 30 min in concentration because generally
+//in the interview we get 45 min time were 15 min in introduction, understanding
+//the problem statement and cross-questioning
 /*syntex might be wrong*/
 
 #include <bits/stdc++.h>
